@@ -4,41 +4,36 @@
 #
 Name     : R-stabs
 Version  : 0.6.3
-Release  : 2
+Release  : 3
 URL      : https://cran.r-project.org/src/contrib/stabs_0.6-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/stabs_0.6-3.tar.gz
 Summary  : Stability Selection with Error Control
 Group    : Development/Tools
 License  : GPL-2.0
-BuildRequires : R-QUIC
 BuildRequires : buildreq-R
 
 %description
-stabs
-=====
-[![Build Status](https://travis-ci.org/hofnerb/stabs.svg)](https://travis-ci.org/hofnerb/stabs)
-[![Build status](https://ci.appveyor.com/api/projects/status/tlo7dbrevje1f2du?svg=true)](https://ci.appveyor.com/project/hofnerb/stabs)
-[![Coverage Status](https://coveralls.io/repos/hofnerb/stabs/badge.svg?branch=master&service=github)](https://coveralls.io/github/hofnerb/stabs?branch=master)
-[![CRAN Status Badge](http://www.r-pkg.org/badges/version/stabs)](https://cran.r-project.org/package=stabs)
-[![](http://cranlogs.r-pkg.org/badges/stabs)](https://cran.r-project.org/package=stabs)
+with additional finite sample error control for high-dimensional variable
+    selection procedures such as Lasso or boosting. Both, standard stability
 
 %prep
 %setup -q -c -n stabs
+cd %{_builddir}/stabs
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1584125741
+export SOURCE_DATE_EPOCH=1589557826
 
 %install
-export SOURCE_DATE_EPOCH=1584125741
+export SOURCE_DATE_EPOCH=1589557826
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
